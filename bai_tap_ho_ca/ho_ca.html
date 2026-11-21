@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hồ cá vui nhộn</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div id="content">
+        <!-- 1. Hai nút đổi nền và phát nhạc ở góc trên bên phải -->
+        <div id="controls">
+            <button onclick="doiCanhNen()">Đổi cảnh nền</button>
+            <button id="btn-nhac" onclick="batTatNhac()">Phát nhạc</button>
+        </div>
+        <audio id="nhac-nen" src="music.mp3" loop></audio>
+
+        <!-- 2. sinh vật biển -->
+        <div id="shark"><img src="images/shark.png" alt="Cá mập"></div>
+        <div id="turtle"><img src="images/turtle.png" alt="Rùa biển"></div>
+        <div id="diver1"><img src="images/diver1.png" alt="Thợ lặn 1"></div>
+        <div id="diver2"><img src="images/diver2.png" alt="Thợ lặn 2"></div>
+        <div id="diver3"><img src="images/diver3.png" alt="Thợ lặn 3"></div>
+        <div id="faintSchool"><img src="images/faintSchool.png" alt="Đàn cá nhỏ"></div>
+        <div id="goldFishSchool"><img src="images/goldFishSchool.png" alt="Đàn cá vàng"></div>
+
+        <!-- 3. Bong bóng nổi từ đáy lên -->
+        <div class="bubble b1"></div>
+        <div class="bubble b2"></div>
+        <div class="bubble b3"></div>
+        <div class="bubble b4"></div>
+        <div class="bubble b5"></div>
+    </div>
+
+    <script>
+    // Danh sách 3 ảnh nền
+    const danhSachNen = [
+      "url('images/bg1.jpg')",
+      "url('images/bg2.jpg')",
+      "url('images/bg3.jpg')"
+    ];
+    let viTriNen = 0;
+
+    function doiCanhNen() {
+      // Tăng vị trí lên 1; nếu hết danh sách thì quay về 0
+      viTriNen = (viTriNen + 1) % danhSachNen.length;
+      document.getElementById("content").style.backgroundImage = danhSachNen[viTriNen];
+    }
+
+    function batTatNhac() {
+      const nhac = document.getElementById("nhac-nen");
+      const nut = document.getElementById("btn-nhac");
+
+      if (nhac.paused) {
+        nhac.play();
+        nut.textContent = "Dừng nhạc";
+      } else {
+        nhac.pause();
+        nut.textContent = "Phát nhạc";
+      }
+    }
+    </script>
+</body>
+</html>

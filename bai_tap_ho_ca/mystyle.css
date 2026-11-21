@@ -1,0 +1,361 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#content {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0077be; 
+    background-image: url('images/bg1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    display: flex;
+    gap: 10px;
+}
+
+    #controls button {
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #003366;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        #controls button:hover {
+            background-color: #ffffff;
+        }
+
+#shark, #turtle, #diver1, #diver2, #diver3, #faintSchool, #goldFishSchool {
+    position: absolute;
+}
+
+/* 1. Cá mập: */
+#shark {
+    animation: CaMapBoi 10s linear infinite;
+}
+
+@keyframes CaMapBoi {
+    0% {
+        left: 5%;
+        top: 15%;
+        transform: scaleX(1);
+    }
+
+    49% {
+        left: 80%;
+        top: 22%;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 80%;
+        top: 22%;
+        transform: scaleX(-1);
+    }
+
+    99% {
+        left: 5%;
+        top: 15%;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 5%;
+        top: 15%;
+        transform: scaleX(1);
+    }
+}
+
+/* 2. Rùa biển */
+#turtle {
+    animation: RuaBoi 22s linear infinite;
+}
+
+@keyframes RuaBoi {
+    0% {
+        left: 10%;
+        top: 68%;
+        transform: scaleX(1);
+    }
+
+    49% {
+        left: 82%;
+        top: 58%;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 82%;
+        top: 58%;
+        transform: scaleX(-1);
+    }
+
+    99% {
+        left: 10%;
+        top: 68%;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 10%;
+        top: 68%;
+        transform: scaleX(1);
+    }
+}
+
+/* 3. Ba thợ lặn */
+#diver1 {
+    animation: ThoLan1 14s ease-in-out infinite;
+}
+
+@keyframes ThoLan1 {
+    0% {
+        left: 10%;
+        top: 35%;
+        transform: scaleX(1);
+    }
+
+    25% {
+        left: 45%;
+        top: 65%;
+        transform: scaleX(1);
+    }
+
+    49% {
+        left: 78%;
+        top: 28%;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 78%;
+        top: 28%;
+        transform: scaleX(-1);
+    }
+
+    75% {
+        left: 45%;
+        top: 18%;
+        transform: scaleX(-1);
+    }
+
+    99% {
+        left: 10%;
+        top: 35%;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 10%;
+        top: 35%;
+        transform: scaleX(1);
+    }
+}
+
+#diver2 {
+    animation: ThoLan2 17s ease-in-out infinite;
+}
+
+@keyframes ThoLan2 {
+    0% {
+        left: 75%;
+        top: 45%;
+        transform: scaleX(-1);
+    }
+
+    25% {
+        left: 40%;
+        top: 20%;
+        transform: scaleX(-1);
+    }
+
+    49% {
+        left: 8%;
+        top: 55%;
+        transform: scaleX(-1);
+    }
+
+    50% {
+        left: 8%;
+        top: 55%;
+        transform: scaleX(1);
+    }
+
+    75% {
+        left: 40%;
+        top: 72%;
+        transform: scaleX(1);
+    }
+
+    99% {
+        left: 75%;
+        top: 45%;
+        transform: scaleX(1);
+    }
+
+    100% {
+        left: 75%;
+        top: 45%;
+        transform: scaleX(-1);
+    }
+}
+
+#diver3 {
+    animation: ThoLan3 19s ease-in-out infinite;
+}
+
+@keyframes ThoLan3 {
+    0% {
+        left: 25%;
+        top: 75%;
+        transform: scaleX(1);
+    }
+
+    30% {
+        left: 60%;
+        top: 38%;
+        transform: scaleX(1);
+    }
+
+    49% {
+        left: 85%;
+        top: 62%;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 85%;
+        top: 62%;
+        transform: scaleX(-1);
+    }
+
+    80% {
+        left: 50%;
+        top: 78%;
+        transform: scaleX(-1);
+    }
+
+    99% {
+        left: 25%;
+        top: 75%;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 25%;
+        top: 75%;
+        transform: scaleX(1);
+    }
+}
+
+/* 4. Hai đàn cá bơi ngang */
+#goldFishSchool {
+    top: 48%;
+    animation: DanCaBoi 13s linear infinite;
+}
+
+#faintSchool {
+    top: 26%;
+    animation: DanCaBoi 16s linear infinite reverse;
+}
+
+@keyframes DanCaBoi {
+    0% {
+        left: 5%;
+        transform: scaleX(1);
+    }
+
+    49% {
+        left: 85%;
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 85%;
+        transform: scaleX(-1);
+    }
+
+    99% {
+        left: 5%;
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 5%;
+        transform: scaleX(1);
+    }
+}
+
+/* 5. Bong bóng tròn nổi từ đáy lên mặt nước */
+.bubble {
+    position: absolute;
+    bottom: -30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    animation: BongBongNoi 7s ease-in infinite;
+}
+
+.b1 {
+    left: 15%;
+    width: 14px;
+    height: 14px;
+    animation-duration: 6s;
+}
+
+.b2 {
+    left: 35%;
+    width: 22px;
+    height: 22px;
+    animation-duration: 8s;
+    animation-delay: 1.5s;
+}
+
+.b3 {
+    left: 55%;
+    width: 16px;
+    height: 16px;
+    animation-duration: 5.5s;
+    animation-delay: 3s;
+}
+
+.b4 {
+    left: 72%;
+    width: 24px;
+    height: 24px;
+    animation-duration: 9s;
+    animation-delay: 0.5s;
+}
+
+.b5 {
+    left: 88%;
+    width: 18px;
+    height: 18px;
+    animation-duration: 6.5s;
+    animation-delay: 2s;
+}
+
+@keyframes BongBongNoi {
+    0% {
+        bottom: -30px;
+        opacity: 0.8;
+    }
+
+    100% {
+        bottom: 105%;
+        opacity: 0;
+    }
+}

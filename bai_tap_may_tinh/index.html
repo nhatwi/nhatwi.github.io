@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6.2.1 - Máy tính đơn giản</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .khung-may-tinh {
+            background-color: #ffffff;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 560px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #1e293b;
+            margin-bottom: 18px;
+        }
+
+        /* Hàng chứa 2 ô nhập số */
+        .hang-nhap {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+            .hang-nhap input {
+                width: 50%;
+                padding: 10px 12px;
+                font-size: 18px;
+                border: 1px solid #94a3b8;
+                border-radius: 6px;
+            }
+
+        /* Hàng chứa 4 nút phép tính */
+        .hang-nut {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+            .hang-nut button {
+                flex: 1;
+                min-width: 115px;
+                padding: 10px 8px;
+                font-size: 14px;
+                font-weight: bold;
+                background-color: #e2e8f0;
+                color: #0f172a;
+                border: 1px solid #94a3b8;
+                border-radius: 6px;
+                cursor: pointer;
+            }
+
+                .hang-nut button:hover {
+                    background-color: #0284c7;
+                    color: #ffffff;
+                    border-color: #0284c7;
+                }
+
+        .ket-qua {
+            font-size: 20px;
+            font-weight: bold;
+            color: #0f172a;
+            padding-top: 10px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        .quay-ve {
+            margin-top: 22px;
+            text-align: right;
+        }
+
+            .quay-ve a {
+                text-decoration: none;
+                color: #0284c7;
+                font-size: 14px;
+                font-weight: bold;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="khung-may-tinh">
+        <h1>Calculator</h1>
+
+        <form onsubmit="return false;">
+            <!-- 2 ô nhập số -->
+            <div class="hang-nhap">
+                <input type="number" id="so1" placeholder="Nhập số thứ nhất" value="12">
+                <input type="number" id="so2" placeholder="Nhập số thứ hai" value="4">
+            </div>
+
+            <!-- 4 nút gọi chung 1 hàm tinhToan() và truyền ký hiệu phép tính vào -->
+            <div class="hang-nut">
+                <button type="button" onclick="tinhToan('+')">Addition(+)</button>
+                <button type="button" onclick="tinhToan('-')">Subtraction(-)</button>
+                <button type="button" onclick="tinhToan('*')">Multiplication(x)</button>
+                <button type="button" onclick="tinhToan('/')">Division(/)</button>
+            </div>
+        </form>
+
+        <!-- Nơi hiển thị kết quả -->
+        <p class="ket-qua" id="hien-thi">Result Division: 3</p>
+
+        <div class="quay-ve">
+            <a href="../index.html">&#8592; Quay về trang chủ</a>
+        </div>
+    </div>
+
+    <script>
+    // Dùng 1 hàm duy nhất xử lý cả 4 phép tính
+    function tinhToan(phepTinh) {
+      // 1. Lấy chuỗi từ ô input và ép kiểu sang số thực
+      let a = parseFloat(document.getElementById("so1").value);
+      let b = parseFloat(document.getElementById("so2").value);
+      let manHinh = document.getElementById("hien-thi");
+
+      // Kiểm tra nếu người dùng bỏ trống ô nhập
+      if (isNaN(a) || isNaN(b)) {
+        manHinh.innerText = "Vui lòng nhập đủ 2 số!";
+        return;
+      }
+
+      let ketQua = 0;
+      let tenPhepTinh = "";
+
+      // 2. Rẽ nhánh theo tham số phepTinh được truyền từ nút bấm
+      if (phepTinh === '+') {
+        ketQua = a + b;
+        tenPhepTinh = "Addition";
+      } else if (phepTinh === '-') {
+        ketQua = a - b;
+        tenPhepTinh = "Subtraction";
+      } else if (phepTinh === '*') {
+        ketQua = a * b;
+        tenPhepTinh = "Multiplication";
+      } else if (phepTinh === '/') {
+        if (b === 0) {
+          manHinh.innerText = "Không thể chia cho 0!";
+          return;
+        }
+        ketQua = a / b;
+        tenPhepTinh = "Division";
+      }
+
+      // 3. Xuất kết quả ra màn hình
+      manHinh.innerText = "Result " + tenPhepTinh + ": " + ketQua;
+    }
+    </script>
+
+</body>
+</html>

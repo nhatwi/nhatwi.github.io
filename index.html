@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Bài nộp cá nhân COMP1802</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Phần đầu trang */
+        header {
+            background: linear-gradient(135deg, red, #dd3d3d);
+            color: #ffffff;
+            text-align: center; 
+            padding: 45px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+            header h1 {
+                font-size: 28px;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+
+            header p {
+                font-size: 16px;
+                color: #e0f2fe;
+            }
+
+        /* Khu vực chứa 3 thẻ bài tập */
+        main {
+            width: 100%;
+            max-width: 1020px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .tieu-de-muc {
+            text-align: center;
+            font-size: 22px;
+            color: #0f172a;
+            margin-bottom: 28px;
+        }
+
+        .danh-sach-bai {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .the-bai-tap {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px black;
+            border-top: 5px solid blue;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+            .the-bai-tap:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+            }
+
+            .the-bai-tap.the-cv {
+                border-top-color: green;
+            }
+
+            .the-bai-tap.the-mt {
+                border-top-color: orange;
+            }
+
+        .nhan {
+            display: inline-block;
+            width: fit-content;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background-color: #e0f2fe;
+            color: blue;
+            margin-bottom: 12px;
+        }
+
+        .the-cv .nhan {
+            background-color: green;
+            color: white;
+        }
+
+        .the-mt .nhan {
+            background-color: #fef3c7;
+            color: black;
+        }
+
+        .the-bai-tap h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: darkblue;
+        }
+
+        .the-bai-tap p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: darkcyan;
+            margin-bottom: 20px;
+        }
+
+        .nut-xem {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #0284c7;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+            .nut-xem:hover {
+                background-color: #0369a1;
+            }
+
+        .the-cv .nut-xem {
+            background-color: green;
+        }
+
+            .the-cv .nut-xem:hover {
+                background-color: #0f766e;
+            }
+
+        .the-mt .nut-xem {
+            background-color: orange;
+        }
+
+            .the-mt .nut-xem:hover {
+                background-color: #b45309;
+            }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            background-color: red;
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PORTFOLIO BÀI TẬP THIẾT KẾ WEB</h1>
+        <p>Sinh viên: <strong>Phan Nhật Quý</strong> | MSSV: <strong>52.01.104.086</strong> | Lớp: COMP1802</p>
+    </header>
+
+    <main>
+        <h2 class="tieu-de-muc">Danh sách bài nộp cá nhân</h2>
+
+        <div class="danh-sach-bai">
+            <!-- Bài 6.1.1: Hồ cá -->
+            <article class="the-bai-tap">
+                <div>
+                    <span class="nhan">Bài 6.1.1</span>
+                    <h2>Hồ Cá</h2>
+                    <p>Mô phỏng đại dương chuyển động đa hướng bằng CSS3 Animation (@keyframes), kết hợp JavaScript đổi cảnh nền và phát âm thanh.</p>
+                </div>
+                <a href="bai_tap_ho_ca/ho_ca.html" class="nut-xem">Mở bài Hồ cá &#8594;</a>
+            </article>
+
+            <!-- Bài 6.1.3: CV cá nhân -->
+            <article class="the-bai-tap the-cv">
+                <div>
+                    <span class="nhan">Bài 6.1.3</span>
+                    <h2>CV Cá Nhân</h2>
+                    <p>Trang giới thiệu thông tin cá nhân, kỹ năng, học vấn và kinh nghiệm làm việc được chia bố cục 2 cột tỷ lệ 40% - 60% bằng Flexbox.</p>
+                </div>
+                <a href="bai_tap_cv/index.html" class="nut-xem">Mở bài CV cá nhân &#8594;</a>
+            </article>
+
+            <!-- Bài 6.2.1: Máy tính đơn giản -->
+            <article class="the-bai-tap the-mt">
+                <div>
+                    <span class="nhan">Bài 6.2.1</span>
+                    <h2>Máy Tính Đơn Giản</h2>
+                    <p>Ứng dụng JavaScript xử lý sự kiện Form và hàm tham số hóa thực hiện 4 phép tính số học cơ bản.</p>
+                </div>
+                <a href="bai_tap_may_tinh/index.html" class="nut-xem">Mở bài Máy tính &#8594;</a>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Phan Nhật Quý (52.01.104.086) - Môn Thiết kế Web (COMP1802)</p>
+    </footer>
+
+</body>
+</html>
